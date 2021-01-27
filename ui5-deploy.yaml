@@ -1,0 +1,22 @@
+specVersion: '1.0'
+metadata:
+  name: 'ztravel_app_xxx'
+type: application
+ui5Theme: sap_fiori_3
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: abap-cloud-default_abap-trial
+          url: https://313e68ec-01a2-471d-b104-39156ed95037.abap.eu10.hana.ondemand.com
+          scp: true
+        app:
+          name: ZTRAVEL_APP_XXX
+          package: ZTRAVEL_APP_XXX
+          transport: TRLK900486
